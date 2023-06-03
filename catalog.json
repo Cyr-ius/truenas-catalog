@@ -1,0 +1,33 @@
+{
+    "charts": {},
+    "test": {},
+     "stable": {
+        "home-assistant": {
+            "app_readme": "<p>home-assistant App for TrueNAS SCALE</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/home-assistant\">https://truecharts.org/charts/stable/home-assistant</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+            "categories": [
+                "home-automation"
+            ],
+            "description": "home-assistant App for TrueNAS SCALE",
+            "healthy": true,
+            "healthy_error": null,
+            "home": "https://truecharts.org/charts/stable/home-assistant",
+            "location": "/home/runner/work/catalog/catalog/stable/home-assistant",
+            "latest_version": "19.0.22",
+            "latest_app_version": "2023.5.3",
+            "latest_human_version": "2023.5.3_19.0.22",
+            "last_update": "2023-05-24 17:53:08",
+            "name": "home-assistant",
+            "recommended": false,
+            "title": "Home-assistant",
+            "maintainers": [
+                {
+                    "email": "cyr-ius@ipocus.net",
+                    "name": "Cyr-ius",
+                    "url": "https://www.ipocus.net"
+                }
+            ],
+            "tags": [],
+            "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/home-assistant.png"
+        }
+    }
+}
