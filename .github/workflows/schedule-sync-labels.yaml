@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.BOT_TOKEN }}
 
       - name: Sync Labels
         uses: EndBug/label-sync@v2
