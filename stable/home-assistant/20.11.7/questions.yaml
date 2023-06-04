@@ -105,7 +105,6 @@ questions:
                       description: Deployment
                     - value: DaemonSet
                       description: DaemonSet
-
               - variable: replicas
                 label: Replicas (Advanced)
                 description: Set the number of Replicas
