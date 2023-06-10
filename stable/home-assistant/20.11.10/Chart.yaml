@@ -1,0 +1,30 @@
+apiVersion: v2
+appVersion: "2023.6.1"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 12.12.2
+deprecated: false
+description: home-assistant App for TrueNAS SCALE
+home: https://truecharts.org/charts/stable/home-assistant
+icon: https://truecharts.org/img/hotlink-ok/chart-icons/home-assistant.png
+keywords:
+  - home-assistant
+  - hass
+  - homeassistant
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: cyr-ius@ipocus.net
+    name: My Catalog
+name: home-assistant
+sources:
+  - https://github.com/cyr-ius/truenas-charts/tree/my-refs/charts/stable/home-assistant
+  - https://github.com/cyr-ius/truenas-catalog/tree/master/stable/home-assistant
+  - https://github.com/home-assistant/home-assistant
+  - https://github.com/cdr/code-server
+type: application
+version: 20.11.10
+annotations:
+  truecharts.org/catagories: |
+    - home-automation
+  truecharts.org/SCALE-support: "true"
