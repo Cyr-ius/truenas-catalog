@@ -55,4 +55,4 @@ jobs:
           git config user.email "cyr-ius@ipocus.net"
           git add catalog.json || echo "Adding catalog.json failed"
           git commit --all -m "Commit catalog.json" || echo "Commiting catalog.json failed"
-          git push -f origin master
+          git push -f origin staging:master
