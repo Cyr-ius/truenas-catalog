@@ -4,96 +4,96 @@
 
 
 
-## [home-assistant-20.0.23](https://github.com/truecharts/charts/compare/home-assistant-20.0.22...home-assistant-20.0.23) (2023-11-17)
+## [home-assistant-21.0.4](https://github.com/truecharts/charts/compare/home-assistant-21.0.3...home-assistant-21.0.4) (2023-12-21)
+
+### Fix
+
+- bump to release middleware fix
+  
+  
 
 
-
-
-## [home-assistant-20.0.22](https://github.com/truecharts/charts/compare/home-assistant-20.0.21...home-assistant-20.0.22) (2023-11-10)
+## [home-assistant-21.0.3](https://github.com/truecharts/charts/compare/home-assistant-21.0.2...home-assistant-21.0.3) (2023-12-21)
 
 ### Chore
 
-- update container image tccr.io/truecharts/home-assistant to v2023.11.2 ([#14531](https://github.com/truecharts/charts/issues/14531))
+- bump everything to ensure patches are applied globally
+  
+  ### Fix
+
+- ensure the cnpg GUI is included on CNPG apps
   
   
 
 
-## [home-assistant-20.0.21](https://github.com/truecharts/charts/compare/home-assistant-20.0.20...home-assistant-20.0.21) (2023-11-08)
+## [home-assistant-21.0.2](https://github.com/truecharts/charts/compare/home-assistant-21.0.1...home-assistant-21.0.2) (2023-12-21)
 
 ### Chore
 
-- update helm general non-major ([#14465](https://github.com/truecharts/charts/issues/14465))
+- update helm general non-major by renovate ([#16341](https://github.com/truecharts/charts/issues/16341))
   
   
 
 
-## [home-assistant-20.0.20](https://github.com/truecharts/charts/compare/home-assistant-20.0.19...home-assistant-20.0.20) (2023-11-08)
+## [home-assistant-21.0.1](https://github.com/truecharts/charts/compare/home-assistant-21.0.0...home-assistant-21.0.1) (2023-12-20)
 
 ### Chore
 
-- update helm general non-major ([#14454](https://github.com/truecharts/charts/issues/14454))
+- bump patch versions on all charts for new GUI release
   
   
 
 
-## [home-assistant-20.0.19](https://github.com/truecharts/charts/compare/home-assistant-20.0.18...home-assistant-20.0.19) (2023-11-05)
+## [home-assistant-21.0.0](https://github.com/truecharts/charts/compare/home-assistant-20.1.6...home-assistant-21.0.0) (2023-12-20)
 
 ### Chore
 
-- update helm general non-major ([#14365](https://github.com/truecharts/charts/issues/14365))
+- update helm general major by renovate (major) ([#14631](https://github.com/truecharts/charts/issues/14631))
   
   
 
 
-## [home-assistant-20.0.18](https://github.com/truecharts/charts/compare/home-assistant-20.0.17...home-assistant-20.0.18) (2023-11-04)
+## [home-assistant-20.1.6](https://github.com/truecharts/charts/compare/home-assistant-20.1.5...home-assistant-20.1.6) (2023-12-20)
 
 ### Chore
 
-- update container image tccr.io/truecharts/home-assistant to v2023.11.1 ([#14343](https://github.com/truecharts/charts/issues/14343))
+- Bump everything to force min/max scale version update
   
   
 
 
-## [home-assistant-20.0.17](https://github.com/truecharts/charts/compare/home-assistant-20.0.16...home-assistant-20.0.17) (2023-11-03)
+## [home-assistant-20.1.5](https://github.com/truecharts/charts/compare/home-assistant-20.1.1...home-assistant-20.1.5) (2023-12-16)
 
 ### Chore
 
-- update helm general non-major ([#14287](https://github.com/truecharts/charts/issues/14287))
+- fix move mistake and cleanup metadata
+  - update helm general non-major ([#14784](https://github.com/truecharts/charts/issues/14784))
+  - update container image homeassistant/home-assistant to v2023.12.3[@128abdf](https://github.com/128abdf) ([#16084](https://github.com/truecharts/charts/issues/16084))
+  - update container image homeassistant/home-assistant to v2023.12.2[@639e779](https://github.com/639e779) ([#16056](https://github.com/truecharts/charts/issues/16056))
   
   
 
 
-## [home-assistant-20.0.16](https://github.com/truecharts/charts/compare/home-assistant-20.0.15...home-assistant-20.0.16) (2023-11-01)
+## [home-assistant-20.1.5](https://github.com/truecharts/charts/compare/home-assistant-20.1.1...home-assistant-20.1.5) (2023-12-16)
 
 ### Chore
 
-- update container image tccr.io/truecharts/home-assistant to v2023.11.0 ([#14227](https://github.com/truecharts/charts/issues/14227))
+- fix move mistake and cleanup metadata
+  - update helm general non-major ([#14784](https://github.com/truecharts/charts/issues/14784))
+  - update container image homeassistant/home-assistant to v2023.12.3[@128abdf](https://github.com/128abdf) ([#16084](https://github.com/truecharts/charts/issues/16084))
+  - update container image homeassistant/home-assistant to v2023.12.2[@639e779](https://github.com/639e779) ([#16056](https://github.com/truecharts/charts/issues/16056))
   
   
 
 
-## [home-assistant-20.0.15](https://github.com/truecharts/charts/compare/home-assistant-20.0.14...home-assistant-20.0.15) (2023-10-29)
+## [home-assistant-20.1.4](https://github.com/truecharts/charts/compare/home-assistant-20.1.1...home-assistant-20.1.4) (2023-12-16)
 
 ### Chore
 
-- Fix typo in categories and make them singular ([#13693](https://github.com/truecharts/charts/issues/13693))
-  - update helm general non-major ([#14094](https://github.com/truecharts/charts/issues/14094))
+- fix move mistake and cleanup metadata
+  - update container image homeassistant/home-assistant to v2023.12.3[@128abdf](https://github.com/128abdf) ([#16084](https://github.com/truecharts/charts/issues/16084))
+  - update container image homeassistant/home-assistant to v2023.12.2[@639e779](https://github.com/639e779) ([#16056](https://github.com/truecharts/charts/issues/16056))
   
   
 
 
-## [home-assistant-20.0.14](https://github.com/truecharts/charts/compare/home-assistant-20.0.13...home-assistant-20.0.14) (2023-10-22)
-
-### Chore
-
-- update container image tccr.io/truecharts/home-assistant to v2023.10.5 ([#13890](https://github.com/truecharts/charts/issues/13890))
-  
-  
-
-
-## [home-assistant-20.0.13](https://github.com/truecharts/charts/compare/home-assistant-20.0.12...home-assistant-20.0.13) (2023-10-21)
-
-### Chore
-
-- update container image tccr.io/truecharts/home-assistant to v2023.10.4 ([#13863](https://github.com/truecharts/charts/issues/13863))
-  
