@@ -35,11 +35,11 @@ jobs:
           pip install -U --no-cache-dir .
           cd -
 
-      #- name: catalog tests
-      #  shell: bash
-      #  run: |
-      #    echo "Starting Catalog Validation"
-      #    python3 .catalog_validation/catalog_validation/scripts/catalog_validate.py validate --path "${PWD}" --ignore-catalog-json
+      - name: catalog tests
+        shell: bash
+        run: |
+          echo "Starting Catalog Validation"
+          python3 .catalog_validation/catalog_validation/scripts/catalog_validate.py validate --path "${PWD}" --ignore-catalog-json
 
       - name: catalog json generation
         shell: bash
@@ -54,5 +54,6 @@ jobs:
           git config user.name "cyr-ius"
           git config user.email "cyr-ius@ipocus.net"
           git add catalog.json || echo "Adding catalog.json failed"
-          git commit --all -m "Commit catalog.json" || echo "Commiting catalog.json failed"
+          git add **/app_versions.json || echo "Adding app_version.json files failed"
+          git commit --all -m "Commit app_versions.json and catalog.json" || echo "Commiting app_versions.json and catalog.json failed"
           git push -f origin staging:master
