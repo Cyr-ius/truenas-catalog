@@ -57,9 +57,7 @@ enabled: true
 mountPath: "/certs"
 readOnly: true
 type: secret
-objectName: secretName
-items:
-  - key: {{ include "cert-manager-webhook-pdns.servingCertificate" . }}
+secretName: {{ include "cert-manager-webhook-pdns.servingCertificate" . }}
 {{- end -}}
 
 
