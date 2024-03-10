@@ -20,10 +20,11 @@ workload:
               enabled: false
 service:
   main:
-    enabled: false
+    enabled: true
     ports:
+      type: ClusterIP
       main:
-        enabled: false
+        enabled: true
         port: 443
 portal:
   open:
@@ -38,7 +39,7 @@ groupName: acme.mycompany.com
 certManager:
   namespace: ix-cert-manager
   serviceAccountName: cert-manager-certmanager
-webhook:
+webhookPdns:
   serverID: localhost
   ttl: 120
   timeout: 30
