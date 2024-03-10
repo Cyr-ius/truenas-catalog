@@ -32,15 +32,6 @@ groups:
   - name: Documentation
     description: Documentation
 
-portals:
-  open:
-    protocols:
-      - "$kubernetes-resource_configmap_tcportal-open_protocol"
-    host:
-      - "$kubernetes-resource_configmap_tcportal-open_host"
-    ports:
-      - "$kubernetes-resource_configmap_tcportal-open_port"
-
 questions:
   - variable: global
     group: General Settings
