@@ -38,24 +38,14 @@ groupName: acme.mycompany.com
 certManager:
   namespace: ix-cert-manager
   serviceAccountName: cert-manager-certmanager
-webhook:
+webhookPdns:
   serverID: localhost
   ttl: 120
   timeout: 30
   caBundle: BASE64_ENCODED_CA_BUNDLE
 nameOverride: ""
 fullnameOverride: ""
-serviceAccount:
-  create: true
-  annotations: {}
-  name: ""
 resources: {}
 nodeSelector: {}
 tolerations: []
 affinity: {}
-containerSecurityContext:
-  runAsUser: 100
-  runAsGroup: 100
-podAnnotations: {}
-podSecurityContext: {}
-priorityClassName: ""
