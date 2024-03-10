@@ -114,6 +114,7 @@ questions:
       type: string
       default: "acme.mycompany.com"
       required: true
+
   - variable: certManager
     group: "Cert Manager"
     label: "Cert Manager"
@@ -133,6 +134,7 @@ questions:
             type: string
             default: "cert-manager-certmanager"
             required: true
+
   - variable: webhook
     group: "Webhook"
     label: "Webhook"
