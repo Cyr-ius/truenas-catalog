@@ -54,12 +54,11 @@ Create the name of the service account to use
 {{/* Append the general secret volumes to the volumes */}}
 {{- define "cert-manager-webhook-pdns.secretVolumes" -}}
 enabled: true
-mountPath: "/certs"
 readOnly: true
+mountPath: "/tls"
 type: secret
-items:
-  - key: secretName
-    path: {{ include "cert-manager-webhook-pdns.servingCertificate" . }}
+objectName: certs
+secretName: {{ include "cert-manager-webhook-pdns.servingCertificate" . }}
 {{- end -}}
 
 
