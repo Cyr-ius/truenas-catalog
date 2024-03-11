@@ -35,11 +35,13 @@ persistence:
   certs:
     enabled: true
     mountPath: "/tls"
-    readOnly: true
-    targetSelectAll: true
 portal:
   open:
     enabled: false
+securityContext:
+  container:
+    runAsUser: 100
+    runAsGroup: 100
 operator:
   verify:
     additionalOperators:
