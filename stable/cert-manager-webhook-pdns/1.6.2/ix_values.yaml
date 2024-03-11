@@ -12,6 +12,7 @@ workload:
           args:
             - --tls-cert-file=/tls/tls.crt
             - --tls-private-key-file=/tls/tls.key
+            - --secure-port=8443
           env:
             GROUP_NAME: "acme.mycompany.com"
           probes:
@@ -31,16 +32,13 @@ service:
       main:
         port: 443
         type: https
-persistence:
-  certs:
-    enabled: true
-    mountPath: "/tls"
-    type: secret
-    readOnly: true
-    objectName: cert-manager-webhook-pdns-webhook-tls
 portal:
   open:
     enabled: false
+securityContext:
+  container:
+    runAsUser: 100
+    runAsGroup: 100
 operator:
   verify:
     additionalOperators:
