@@ -165,7 +165,7 @@ questions:
     group: "App Configuration"
     schema:
       type: string
-      default: "acme.mycompany.com"
+      default: "acme.zacharyseguin.ca"
       required: true
   - variable: certManager
     group: "App Configuration"
@@ -387,6 +387,14 @@ questions:
       type: dict
       attrs:
 
+        - variable: main
+          label: "Main Service"
+          description: "The Primary service on which the healthcheck runs, often the webUI"
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
+
               - variable: enabled
                 label: Enable the Service
                 schema:
@@ -430,7 +438,7 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 8443
+                              default: 443
                               required: true
   - variable: serviceexpert
     group: Networking and Services
@@ -664,6 +672,13 @@ questions:
       type: dict
       attrs:
 
+        - variable: certs
+          label: "App Config Storage"
+          description: "Stores the Application Configuration."
+          schema:
+            additional_attrs: true
+            type: dict
+            attrs:
               - variable: type
                 label: Type of Storage
                 description: Sets the persistence type, Anything other than PVC could break rollback!
