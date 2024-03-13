@@ -23,7 +23,16 @@ workload:
               path: /healthz
             startup:
               enabled: false
-
+service:
+  main:
+    ports:
+      main:
+        port: 443
+        targetPort: 8443
+persistence:
+  certs:
+    enabled: true
+    mountPath: "/tls"
 portal:
   open:
     enabled: false
