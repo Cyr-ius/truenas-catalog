@@ -419,7 +419,7 @@ questions:
                   type: dict
                   attrs:
 
-                    - variable: dot
+                    - variable: main
                       label: Main service
                       schema:
                         additional_attrs: true
