@@ -23,12 +23,15 @@ groups:
     description: Metrics
   - name: Addons
     description: Addon Configuration
+  - name: Backup Configuration
+    description: Configure Velero Backup Schedule
   - name: Advanced
     description: Advanced Configuration
   - name: Postgresql
     description: Postgresql
   - name: Documentation
     description: Documentation
+
 portals:
   open:
     protocols:
@@ -37,6 +40,7 @@ portals:
       - "$kubernetes-resource_configmap_tcportal-open_host"
     ports:
       - "$kubernetes-resource_configmap_tcportal-open_port"
+
 questions:
   - variable: image
     group: "Container Image"
@@ -82,6 +86,7 @@ questions:
           schema:
             type: boolean
             default: false
+
   - variable: workload
     group: "Workload Settings"
     label: ""
@@ -95,6 +100,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+
               - variable: type
                 label: Type (Advanced)
                 schema:
@@ -106,6 +112,7 @@ questions:
                     - value: DaemonSet
                       description: DaemonSet
 
+
               - variable: replicas
                 label: Replicas (Advanced)
                 description: Set the number of Replicas
@@ -113,6 +120,7 @@ questions:
                   type: int
                   show_if: [["type", "!=", "DaemonSet"]]
                   default: 1
+
               - variable: podSpec
                 label: ""
                 schema:
@@ -125,12 +133,14 @@ questions:
                         additional_attrs: true
                         type: dict
                         attrs:
+
                           - variable: main
                             label: Main Container
                             schema:
                               additional_attrs: true
                               type: dict
                               attrs:
+
 
 
                                 - variable: envList
@@ -164,6 +174,7 @@ questions:
                                         label: Arg
                                         schema:
                                           type: string
+
                                 - variable: advanced
                                   label: Show Advanced Settings
                                   description: Advanced settings are not covered by TrueCharts Support
@@ -183,6 +194,7 @@ questions:
                                               schema:
                                                 type: string
 
+
   - variable: TZ
     label: Timezone
     group: "General Settings"
@@ -191,6 +203,7 @@ questions:
       default: "Etc/UTC"
       $ref:
         - "definitions/timezone"
+
   - variable: podOptions
     group: "General Settings"
     label: "Global Pod Options (Advanced)"
@@ -273,30 +286,43 @@ questions:
             type: dict
             additional_attrs: true
             attrs:
-              - variable: registry
-                label: "Registry"
+              - variable: enabled
+                label: Enabled
                 schema:
-                  type: string
-                  required: true
-                  default: "https://index.docker.io/v1/"
-              - variable: username
-                label: "Username"
+                  type: boolean
+                  default: true
+              - variable: data
+                label: Data
                 schema:
-                  type: string
-                  required: true
-                  default: ""
-              - variable: password
-                label: "Password"
-                schema:
-                  type: string
-                  required: true
-                  default: ""
-              - variable: email
-                label: "Email"
-                schema:
-                  type: string
-                  required: true
-                  default: ""
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: registry
+                      label: "Registry"
+                      schema:
+                        type: string
+                        required: true
+                        default: "https://index.docker.io/v1/"
+                    - variable: username
+                      label: "Username"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: password
+                      label: "Password"
+                      schema:
+                        type: string
+                        required: true
+                        private: true
+                        default: ""
+                    - variable: email
+                      label: "Email"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+
   - variable: service
     group: Networking and Services
     label: Configure Service(s)
@@ -304,6 +330,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: main
           label: "Main Service"
           description: "The Primary service on which the healthcheck runs, often the webUI"
@@ -311,6 +338,7 @@ questions:
             additional_attrs: true
             type: dict
             attrs:
+
               - variable: enabled
                 label: Enable the Service
                 schema:
@@ -328,6 +356,7 @@ questions:
                       description: LoadBalancer (Expose Ports)
                     - value: ClusterIP
                       description: ClusterIP (Do Not Expose Ports)
+
               - variable: loadBalancerIP
                 label: LoadBalancer IP
                 description: "MetalLB Only: Selects the Loadbalancer IP to expose on. Required when using PortalButton with MetalLB"
@@ -341,6 +370,7 @@ questions:
                   additional_attrs: true
                   type: dict
                   attrs:
+
                     - variable: main
                       label: "Main Service Port Configuration"
                       schema:
@@ -362,6 +392,7 @@ questions:
       default: false
       show_subquestions_if: true
       subquestions:
+
         - variable: scaleExternalInterface
           description: Add External Interfaces
           label: Add external Interfaces
@@ -440,6 +471,7 @@ questions:
                                           type: ipaddr
                                           cidr: false
                                           required: true
+
         - variable: serviceList
           label: Add Manual Custom Services
           group: Networking and Services
@@ -574,6 +606,7 @@ questions:
                                   schema:
                                     type: int
                                     required: true
+
   - variable: persistence
     label: Integrated Persistent Storage
     description: Integrated Persistent Storage
@@ -582,6 +615,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: config
           label: "App Config Storage"
           description: "Stores the Application Configuration."
@@ -855,6 +889,7 @@ questions:
                             schema:
                               type: string
                               default: ""
+
   - variable: persistenceList
     label: Additional App Storage
     group: Storage and Persistence
@@ -1144,6 +1179,7 @@ questions:
                             schema:
                               type: string
                               default: ""
+
   - variable: ingress
     label: ""
     group: Ingress
@@ -1151,6 +1187,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: main
           label: "Main Ingress"
           schema:
@@ -1208,6 +1245,7 @@ questions:
                                                 default: Prefix
 
 
+
                     - variable: integrations
                       label: Integrations
                       description: Connect ingress with other charts
@@ -1228,7 +1266,7 @@ questions:
                                     type: boolean
                                     default: true
                                 - variable: allowCors
-                                  label: "Allow Cross Origin Requests"
+                                  label: 'Allow Cross Origin Requests (advanced)'
                                   schema:
                                     type: boolean
                                     default: false
@@ -1300,15 +1338,22 @@ questions:
                                     type: boolean
                                     default: false
                                 - variable: name
-                                  label: Name
-                                  description: defaults to chartname
+                                  label: Name (Optional)
+                                  description: Defaults to chart name
                                   schema:
                                     type: string
                                     default: ""
                                     show_if: [["enabled", "=", true]]
                                 - variable: description
-                                  label: Description
-                                  description: defaults to chart description
+                                  label: Description (Optional)
+                                  description: Defaults to chart description
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    show_if: [["enabled", "=", true]]
+                                - variable: icon
+                                  label: Icon (Optional)
+                                  description: Defaults to chart icon
                                   schema:
                                     type: string
                                     default: ""
@@ -1320,6 +1365,54 @@ questions:
                                     required: true
                                     default: "default"
                                     show_if: [["enabled", "=", true]]
+                                - variable: widget
+                                  label: Widget Settings
+                                  schema:
+                                    type: dict
+                                    additional_attrs: true
+                                    show_if: [["enabled", "=", true]]
+                                    attrs:
+                                      - variable: enabled
+                                        label: Enable Widget
+                                        description: When disabled all widget annotations are skipped.
+                                        schema:
+                                          type: boolean
+                                          default: true
+                                      - variable: custom
+                                        label: Options
+                                        schema:
+                                          type: dict
+                                          additional_attrs: true
+                                          attrs:
+                                            - variable: key
+                                              label: API-key (key)
+                                              schema:
+                                                type: string
+                                                default: ""
+                                      - variable: customkv
+                                        label: Custom Options
+                                        schema:
+                                          type: list
+                                          default: []
+                                          items:
+                                            - variable: option
+                                              label: Option
+                                              schema:
+                                                additional_attrs: true
+                                                type: dict
+                                                attrs:
+                                                  - variable: key
+                                                    label: Key
+                                                    schema:
+                                                      type: string
+                                                      default: ""
+                                                      required: true
+                                                  - variable: value
+                                                    label: Value
+                                                    schema:
+                                                      type: string
+                                                      default: ""
+                                                      required: true
                     - variable: advanced
                       label: Show Advanced Settings
                       description: Advanced settings are not covered by TrueCharts Support
@@ -1377,13 +1470,7 @@ questions:
                                     show_if: [["certificateIssuer", "=", ""]]
                                     type: string
                                     default: ""
-                                - variable: scaleCert
-                                  label: 'Use TrueNAS SCALE Certificate (Deprecated)'
-                                  schema:
-                                    show_if: [["certificateIssuer", "=", ""]]
-                                    type: int
-                                    $ref:
-                                      - "definitions/certificate"
+
   - variable: ingressList
     label: Add Manual Custom Ingresses
     group: Ingress
@@ -1455,7 +1542,7 @@ questions:
                                           type: string
                                           required: true
                                           default: Prefix
-                                      - variable: service
+                                      - variable: overrideService
                                         label: Linked Service
                                         schema:
                                           additional_attrs: true
@@ -1501,13 +1588,6 @@ questions:
                             schema:
                               type: string
                               default: ""
-                          - variable: scaleCert
-                            label: Use TrueNAS SCALE Certificate (Deprecated)
-                            schema:
-                              show_if: [["certificateIssuer", "=", ""]]
-                              type: int
-                              $ref:
-                                - "definitions/certificate"
                           - variable: clusterCertificate
                             label:  'Cluster Certificate (Advanced)'
                             description: 'Add the name of your cluster-wide certificate, that you set up in the ClusterIssuer chart.'
@@ -1633,6 +1713,7 @@ questions:
                               required: true
                               default: "default"
                               show_if: [["enabled", "=", true]]
+
   - variable: securityContext
     group: Security and Permissions
     label: Security Context
@@ -1647,6 +1728,7 @@ questions:
             type: dict
             attrs:
               # Settings from questions.yaml get appended here on a per-app basis
+
 
               - variable: runAsUser
                 label: "runAsUser"
@@ -1674,6 +1756,7 @@ questions:
                 schema:
                   type: string
                   default: "0022"
+
               - variable: advanced
                 label: Show Advanced Settings
                 description: Advanced settings are not covered by TrueCharts Support
@@ -1692,6 +1775,7 @@ questions:
                       schema:
                         type: boolean
                         default: true
+
         - variable: pod
           label: Pod
           schema:
@@ -1719,6 +1803,7 @@ questions:
                       schema:
                         type: int
               # Settings from questions.yaml get appended here on a per-app basis
+
               - variable: fsGroup
                 label: "fsGroup"
                 description: "The group that should own ALL storage."
@@ -1753,6 +1838,21 @@ questions:
                   type: string
                   default: 8Gi
                   valid_chars: '^(?!^0(e[0-9]|[EPTGMK]i?|)$)([0-9]+)(|[EPTGMK]i?|e[0-9]+)$'
+              - variable: 'intel.com/i915'
+                label: Add Intel i915 GPUs
+                schema:
+                  type: int
+                  default: 0
+              - variable: 'nvidia.com/gpu'
+                label: Add NVIDIA GPUs (Experimental)
+                schema:
+                  type: int
+                  default: 0
+              - variable: 'amd.com/gpu'
+                label: Add AMD GPUs
+                schema:
+                  type: int
+                  default: 0
         - variable: requests
           label: "Minimum Resources Required (request)"
           schema:
@@ -1845,6 +1945,7 @@ questions:
                   type: string
                   default: workaround
                   hidden: true
+
   - variable: cnpg
     group: Postgresql
     label: "CloudNative-PG (CNPG)"
@@ -1864,6 +1965,19 @@ questions:
                 schema:
                   type: boolean
                   default: false
+              - variable: mode
+                label: Mode
+                description: 'Cluster mode of operation. Available modes: standalone - default mode. Creates new or updates an existing CNPG cluster. recovery - Same as standalone but creates a cluster from a backup, object store or via pg_basebackup replica - Creates a replica cluster from an existing CNPG cluster. # TODO.'
+                schema:
+                  type: string
+                  default: "standalone"
+                  enum:
+                    - value: standalone
+                      description: standalone
+                    - value: replica
+                      description: replica
+                    - value: recovery
+                      description: recovery
               - variable: cluster
                 label: "Cluster Settings"
                 schema:
@@ -1970,128 +2084,118 @@ questions:
                         type: string
                         show_if: [["enabled", "=", true]]
                         default: "s3"
+                        enum:
+                         - value: s3
+                           description: S3
+                         - value: azure
+                           description: Azure
+                         - value: google
+                           description: Google
                     - variable: s3
                       label: "s3"
                       schema:
                         additional_attrs: true
                         type: dict
-                        show_if: [["provider", "=", "s3"], ["enabled", "=", true]]
+                        show_if: [["provider", "=", "s3"]]
                         attrs:
                           - variable: region
                             label: "region"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: bucket
                             label: "bucket"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: path
                             label: "path"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: "/"
                           - variable: accessKey
                             label: "accessKey"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: secretKey
                             label: "secretKey"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                     - variable: azure
                       label: "azure (EXTREMELY EXPERIMENTAL)"
                       schema:
                         additional_attrs: true
                         type: dict
-                        show_if: [["provider", "=", "azure"], ["enabled", "=", true]]
+                        show_if: [["provider", "=", "azure"]]
                         attrs:
                           - variable: path
                             label: "path"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: "/"
                           - variable: connectionString
                             label: "connectionString"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: storageAccount
                             label: "storageAccount"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: storageKey
                             label: "storageKey"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: storageSasToken
                             label: "storageSasToken"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: containerName
                             label: "containerName"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: serviceName
                             label: "serviceName"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: "blob"
                           - variable: inheritFromAzureAD
                             label: "inheritFromAzureAD"
                             schema:
                               type: boolean
-                              show_if: [["enabled", "=", true]]
                               default: false
                     - variable: google
                       label: "google (EXTREMELY EXPERIMENTAL)"
                       schema:
                         additional_attrs: true
                         type: dict
-                        show_if: [["provider", "=", "google"], ["enabled", "=", true]]
+                        show_if: [["provider", "=", "google"]]
                         attrs:
                           - variable: path
                             label: "path"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: "/"
                           - variable: bucket
                             label: "bucket"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: gkeEnvironment
                             label: "gkeEnvironment"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: applicationCredentials
                             label: "applicationCredentials"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
               - variable: backups
                 label: "Backup Settings (Experimental)"
@@ -2128,67 +2232,66 @@ questions:
                         type: string
                         show_if: [["enabled", "=", true]]
                         default: "s3"
+                        enum:
+                         - value: s3
+                           description: S3
+                         - value: azure
+                           description: Azure
+                         - value: google
+                           description: Google
                     - variable: s3
                       label: "s3"
                       schema:
                         additional_attrs: true
                         type: dict
-                        show_if: [["provider", "=", "s3"], ["enabled", "=", true]]
+                        show_if: [["provider", "=", "s3"]]
                         attrs:
                           - variable: region
                             label: "region"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: bucket
                             label: "bucket"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: path
                             label: "path"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: "/"
                           - variable: accessKey
                             label: "accessKey"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: secretKey
                             label: "secretKey"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                     - variable: azure
                       label: "azure (EXTREMELY EXPERIMENTAL)"
                       schema:
                         additional_attrs: true
                         type: dict
-                        show_if: [["provider", "=", "azure"], ["enabled", "=", true]]
+                        show_if: [["provider", "=", "azure"]]
                         attrs:
                           - variable: path
                             label: "path"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: "/"
                           - variable: connectionString
                             label: "connectionString"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: storageAccount
                             label: "storageAccount"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: storageKey
                             label: "storageKey"
@@ -2200,116 +2303,110 @@ questions:
                             label: "storageSasToken"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: containerName
                             label: "containerName"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: serviceName
                             label: "serviceName"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: "blob"
                           - variable: inheritFromAzureAD
                             label: "inheritFromAzureAD"
                             schema:
                               type: boolean
-                              show_if: [["enabled", "=", true]]
                               default: false
                     - variable: google
                       label: "google (EXTREMELY EXPERIMENTAL)"
                       schema:
                         additional_attrs: true
                         type: dict
-                        show_if: [["provider", "=", "google"], ["enabled", "=", true]]
+                        show_if: [["provider", "=", "google"]]
                         attrs:
                           - variable: path
                             label: "path"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: "/"
                           - variable: bucket
                             label: "bucket"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: gkeEnvironment
                             label: "gkeEnvironment"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
                           - variable: applicationCredentials
                             label: "applicationCredentials"
                             schema:
                               type: string
-                              show_if: [["enabled", "=", true]]
                               default: ""
-              - variable: scheduledBackups
-                label: ScheduledBackups
-                schema:
-                  type: list
-                  default: []
-                  show_if: [["enabled", "=", true]]
-                  items:
-                    - variable: backupschedule
-                      label: BackupSchedule
+                    - variable: scheduledBackups
+                      label: ScheduledBackups
                       schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: name
+                        type: list
+                        default: []
+                        show_if: [["enabled", "=", true]]
+                        items:
+                          - variable: backupschedule
+                            label: BackupSchedule
                             schema:
-                              type: string
-                              default: "daily-backup"
-                              required: true
-                          - variable: schedule
-                            label: schedule
-                            schema:
-                              type: string
-                              required: true
-                              default: "0 0 0 * * *"
-                          - variable: backupOwnerReference
-                            label: backupOwnerReference
-                            schema:
-                              type: string
-                              required: true
-                              default: "self"
-                          - variable: immediate
-                            label: immediate
-                            schema:
-                              type: boolean
-                              default: false
-                          - variable: suspend
-                            label: suspend
-                            schema:
-                              type: boolean
-                              default: false
-              - variable: manualBackups
-                label: manualBackups
-                schema:
-                  type: list
-                  default: []
-                  items:
-                    - variable: backup
-                      label: Backup
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: name
+                                  schema:
+                                    type: string
+                                    default: "daily-backup"
+                                    required: true
+                                - variable: schedule
+                                  label: schedule
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: "0 0 0 * * *"
+                                - variable: backupOwnerReference
+                                  label: backupOwnerReference
+                                  schema:
+                                    type: string
+                                    required: true
+                                    default: "self"
+                                - variable: immediate
+                                  label: immediate
+                                  schema:
+                                    type: boolean
+                                    default: false
+                                - variable: suspend
+                                  label: suspend
+                                  schema:
+                                    type: boolean
+                                    default: false
+                    - variable: manualBackups
+                      label: manualBackups
                       schema:
-                        additional_attrs: true
-                        type: dict
-                        attrs:
-                          - variable: name
-                            label: name
+                        type: list
+                        default: []
+                        show_if: [["enabled", "=", true]]
+                        items:
+                          - variable: backup
+                            label: Backup
                             schema:
-                              type: string
-                              default: ""
-                              required: true
+                              additional_attrs: true
+                              type: dict
+                              attrs:
+                                - variable: name
+                                  label: name
+                                  schema:
+                                    type: string
+                                    default: ""
+                                    required: true
+
 #  - variable: horizontalPodAutoscaler
 #    group: Advanced
 #    label: (Advanced) Horizontal Pod Autoscaler
@@ -2740,6 +2837,7 @@ questions:
                                                   description: UDP
                                                 - value: SCTP
                                                   description: SCTP
+
   - variable: addons
     group: Addons
     label: ""
@@ -2747,6 +2845,7 @@ questions:
       additional_attrs: true
       type: dict
       attrs:
+
         - variable: codeserver
           label: Codeserver
           schema:
@@ -2858,44 +2957,90 @@ questions:
                                                             type: string
                                                             required: true
                                                             default: Prefix
-                                - variable: certificateIssuer
-                                  label: Cert-Manager clusterIssuer
-                                  description: 'add the name of your cert-manager clusterIssuer here for automatic tls certificates. Cannot be used combined with tls option below'
+                                - variable: integrations
+                                  label: Integrations
+                                  description: Connect ingress with other charts
                                   schema:
-                                    type: string
-                                    default: ""
-                                - variable: middlewares
-                                  label: Traefik Middlewares
-                                  description: Add previously created Traefik Middlewares to this Ingress
-                                  schema:
-                                    type: list
-                                    default: []
-                                    items:
-                                      - variable: name
-                                        label: Name
+                                    additional_attrs: true
+                                    type: dict
+                                    attrs:
+                                      - variable: traefik
+                                        label: Traefik
+                                        description: Connect ingress with Traefik
                                         schema:
-                                          type: string
-                                          default: ""
-                                          required: true
+                                          additional_attrs: true
+                                          type: dict
+                                          attrs:
+                                            - variable: enabled
+                                              label: enabled
+                                              schema:
+                                                type: boolean
+                                                default: true
+                                            - variable: allowCors
+                                              label: 'Allow Cross Origin Requests (advanced)'
+                                              schema:
+                                                type: boolean
+                                                default: false
+                                                show_if: [["enabled", "=", true]]
+                                            - variable: entrypoints
+                                              label: Entrypoints
+                                              schema:
+                                                type: list
+                                                default: ["websecure"]
+                                                show_if: [["enabled", "=", true]]
+                                                items:
+                                                  - variable: entrypoint
+                                                    label: Entrypoint
+                                                    schema:
+                                                      type: string
+                                            - variable: middlewares
+                                              label: Middlewares
+                                              schema:
+                                                type: list
+                                                default: []
+                                                show_if: [["enabled", "=", true]]
+                                                items:
+                                                  - variable: middleware
+                                                    label: Middleware
+                                                    schema:
+                                                      additional_attrs: true
+                                                      type: dict
+                                                      attrs:
+                                                        - variable: name
+                                                          label: name
+                                                          schema:
+                                                            type: string
+                                                            default: ""
+                                                            required: true
+                                                        - variable: namespace
+                                                          label: 'namespace (optional)'
+                                                          schema:
+                                                            type: string
+                                                            default: ""
+                                      - variable: certManager
+                                        label: certManager
+                                        description: Connect ingress with certManager
+                                        schema:
+                                          additional_attrs: true
+                                          type: dict
+                                          attrs:
+                                            - variable: enabled
+                                              label: enabled
+                                              schema:
+                                                type: boolean
+                                                default: false
+                                            - variable: certificateIssuer
+                                              label: certificateIssuer
+                                              description: defaults to chartname
+                                              schema:
+                                                type: string
+                                                default: ""
+                                                show_if: [["enabled", "=", true]]
                                 - variable: advanced
                                   label: Show Advanced Settings
                                   description: Advanced settings are not covered by TrueCharts Support
                                   schema:
                                     type: boolean
-                                    default: false
-                                - variable: entrypoint
-                                  label: (Advanced) Traefik Entrypoint
-                                  description: Entrypoint used by Traefik when using Traefik as Ingress Provider
-                                  schema:
-                                    type: string
-                                    default: websecure
-                                    show_if: [["advanced", "=", true]]
-                                    required: true
-                                - variable: allowCors
-                                  label: "Allow Cross Origin Requests"
-                                  schema:
-                                    type: boolean
-                                    show_if: [["advanced", "=", true]]
                                     default: false
                                 - variable: ingressClassName
                                   label: (Advanced/Optional) IngressClass Name
@@ -2928,6 +3073,7 @@ questions:
                                                       type: string
                                                       default: ""
                                                       required: true
+
                                             - variable: certificateIssuer
                                               label: Use Cert-Manager clusterIssuer
                                               description: 'add the name of your cert-manager clusterIssuer here for automatic tls certificates.'
@@ -2977,6 +3123,7 @@ questions:
                                   schema:
                                     type: string
                                     required: true
+
         - variable: netshoot
           label: Netshoot
           schema:
@@ -3013,6 +3160,7 @@ questions:
                                   schema:
                                     type: string
                                     required: true
+
         - variable: vpn
           label: VPN
           schema:
@@ -3187,6 +3335,7 @@ questions:
                               type: string
                               required: true
                               max_length: 10240
+
   - variable: docs
     group: Documentation
     label: Please read the documentation at https://truecharts.org
@@ -3216,3 +3365,4 @@ questions:
             type: boolean
             default: true
             hidden: true
+
