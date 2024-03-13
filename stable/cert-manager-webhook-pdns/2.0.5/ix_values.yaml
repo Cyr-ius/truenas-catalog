@@ -29,7 +29,6 @@ workload:
               port: https
             startup:
               enabled: false
-              volumes:
       volumes:
         - name: certs
           secret:
@@ -43,7 +42,6 @@ service:
         targetPort: 443
 persistence:
   certs:
-    enabled: true
     readOnly: true
     mountPath: "/tls"
 portal:
