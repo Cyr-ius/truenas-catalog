@@ -32,6 +32,15 @@ groups:
   - name: Documentation
     description: Documentation
 
+portals:
+  open:
+    protocols:
+      - "$kubernetes-resource_configmap_tcportal-open_protocol"
+    host:
+      - "$kubernetes-resource_configmap_tcportal-open_host"
+    ports:
+      - "$kubernetes-resource_configmap_tcportal-open_port"
+
 questions:
   - variable: global
     group: General Settings
@@ -243,6 +252,133 @@ questions:
                 label: "Domain DNS Zone"
                 schema:
                   type: string
+  - variable: TZ
+    label: Timezone
+    group: "General Settings"
+    schema:
+      type: string
+      default: "Etc/UTC"
+      $ref:
+        - "definitions/timezone"
+
+  - variable: podOptions
+    group: "General Settings"
+    label: "Global Pod Options (Advanced)"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: expertPodOpts
+          label: "Expert - Pod Options"
+          schema:
+            type: boolean
+            default: false
+            show_subquestions_if: true
+            subquestions:
+              - variable: hostNetwork
+                label: "Host Networking"
+                schema:
+                  type: boolean
+                  default: false
+              - variable: dnsConfig
+                label: "DNS Configuration"
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: options
+                      label: "Options"
+                      schema:
+                        type: list
+                        default: [{"name": "ndots", "value": "1"}]
+                        items:
+                          - variable: optionsEntry
+                            label: "Option Entry"
+                            schema:
+                              type: dict
+                              additional_attrs: true
+                              attrs:
+                                - variable: name
+                                  label: "Name"
+                                  schema:
+                                    type: string
+                                    required: true
+                                - variable: value
+                                  label: "Value"
+                                  schema:
+                                    type: string
+                    - variable: nameservers
+                      label: "Nameservers"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: nsEntry
+                            label: "Nameserver Entry"
+                            schema:
+                              type: string
+                              required: true
+                    - variable: searches
+                      label: "Searches"
+                      schema:
+                        type: list
+                        default: []
+                        items:
+                          - variable: searchEntry
+                            label: "Search Entry"
+                            schema:
+                              type: string
+                              required: true
+
+  - variable: imagePullSecretList
+    group: "General Settings"
+    label: "Image Pull Secrets"
+    schema:
+      type: list
+      default: []
+      items:
+        - variable: pullsecretentry
+          label: "Pull Secret"
+          schema:
+            type: dict
+            additional_attrs: true
+            attrs:
+              - variable: enabled
+                label: Enabled
+                schema:
+                  type: boolean
+                  default: true
+              - variable: data
+                label: Data
+                schema:
+                  type: dict
+                  additional_attrs: true
+                  attrs:
+                    - variable: registry
+                      label: "Registry"
+                      schema:
+                        type: string
+                        required: true
+                        default: "https://index.docker.io/v1/"
+                    - variable: username
+                      label: "Username"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
+                    - variable: password
+                      label: "Password"
+                      schema:
+                        type: string
+                        required: true
+                        private: true
+                        default: ""
+                    - variable: email
+                      label: "Email"
+                      schema:
+                        type: string
+                        required: true
+                        default: ""
 
   - variable: service
     group: Networking and Services
@@ -284,6 +420,19 @@ questions:
                   type: dict
                   attrs:
 
+                    - variable: dot
+                      label: Main service
+                      schema:
+                        additional_attrs: true
+                        type: dict
+                        attrs:
+                          - variable: port
+                            label: Port
+                            description: This port exposes the container port on the service
+                            schema:
+                              type: int
+                              default: 8443
+                              required: true
   - variable: serviceexpert
     group: Networking and Services
     label: Show Expert Config
@@ -1162,7 +1311,12 @@ questions:
                         type: int
               # Settings from questions.yaml get appended here on a per-app basis
 
-
+              - variable: fsGroup
+                label: "fsGroup"
+                description: "The group that should own ALL storage."
+                schema:
+                  type: int
+                  default: 568
   - variable: resources
     group: Resources and Devices
     label: "Resource Limits"
