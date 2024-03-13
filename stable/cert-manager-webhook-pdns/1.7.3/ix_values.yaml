@@ -28,8 +28,9 @@ service:
     type: ClusterIP
     ports:
       main:
+        enabled: true
         port: 443
-        type: https
+        targetPort: 8443
 persistence:
   certs:
     enabled: true
