@@ -1004,7 +1004,7 @@ questions:
                             description: This port exposes the container port on the service
                             schema:
                               type: int
-                              default: 8443
+                              default: 443
                               required: true
   - variable: serviceexpert
     group: Networking and Services
