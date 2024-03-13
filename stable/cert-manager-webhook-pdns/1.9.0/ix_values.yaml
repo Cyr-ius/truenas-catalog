@@ -23,18 +23,15 @@ workload:
               path: /healthz
             startup:
               enabled: false
-
+service:
+  main:
+    ports:
+      main:
+        port: 8443
+        targetPort: 80
 portal:
   open:
     enabled: false
-
-persistence:
-  certs:
-    enabled: true
-    type: secret
-    readOnly: true
-    objectName: cert-manager-certmanager-tls
-    mountPath: /tls
 
 groupName: acme.zacharyseguin.ca
 
