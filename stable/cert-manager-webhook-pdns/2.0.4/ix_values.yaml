@@ -14,6 +14,10 @@ workload:
             - --secure-port=8443
           env:
             GROUP_NAME: "acme.zacharyseguin.ca"
+          ports:
+            - name: https
+              containerPort: 8443
+              protocol: TCP
           probes:
             liveness:
               enabled: true
@@ -39,7 +43,6 @@ service:
         targetPort: 443
 persistence:
   certs:
-    enabled: true
     readOnly: true
     mountPath: "/tls"
 portal:
