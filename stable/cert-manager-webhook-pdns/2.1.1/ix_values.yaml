@@ -37,13 +37,18 @@ workload:
         - name: certs
           secret:
             secretName: cert-manager-webhook-pdns-webhook-tls
+persistence:
+  certs:
+    enabled: true
+    mountPath: /tls
+    readOnly: true
 service:
   main:
     ports:
       main:
-        port: 443
+        port: 8443
         protocol: https
-        targetPort: 443
+        targetPort: 8443
 portal:
   open:
     enabled: false
