@@ -1,0 +1,140 @@
+groups:
+  - name: Container Image
+    description: Image to be used for container
+  - name: General Settings
+    description: General Deployment Settings
+  - name: Workload Settings
+    description: Workload Settings
+  - name: App Configuration
+    description: App Specific Config Options
+  - name: Networking and Services
+    description: Configure Network and Services for Container
+  - name: Storage and Persistence
+    description: Persist and Share Data that is Separate from the Container
+  - name: Ingress
+    description: Ingress Configuration
+  - name: Security and Permissions
+    description: Configure Security Context and Permissions
+  - name: Resources and Devices
+    description: "Specify Resources/Devices to be Allocated to Workload"
+  - name: Middlewares
+    description: Traefik Middlewares
+  - name: Metrics
+    description: Metrics
+  - name: Addons
+    description: Addon Configuration
+  - name: Backup Configuration
+    description: Configure Velero Backup Schedule
+  - name: Advanced
+    description: Advanced Configuration
+  - name: Postgresql
+    description: Postgresql
+  - name: Documentation
+    description: Documentation
+
+questions:
+  - variable: global
+    group: General Settings
+    label: "Global Settings"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: stopAll
+          label: Stop All
+          description: "Stops All Running pods and hibernates cnpg"
+          schema:
+            type: boolean
+            default: false
+
+  - variable: groupName
+    label: "Group name"
+    group: "App Configuration"
+    schema:
+      type: string
+      default: "acme.zacharyseguin.ca"
+      required: true
+  - variable: certManager
+    group: "App Configuration"
+    label: "Cert Manager"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: namespace
+          label: "Namespace"
+          schema:
+            type: string
+            default: "ix-cert-manager"
+            required: true
+        - variable: serviceAccountName
+          label: "Service Account Name"
+          schema:
+            type: string
+            default: "cert-manager-certmanager"
+            required: true
+  - variable: webhookPdns
+    group: "App Configuration"
+    label: "Webhook"
+    schema:
+      additional_attrs: true
+      type: dict
+      attrs:
+        - variable: email
+          label: "Email"
+          schema:
+            type: string
+            required: true
+        - variable: host
+          label: "Host"
+          schema:
+            type: string
+            required: true
+        - variable: apiKeySecretRef
+          label: "API Key"
+          description: "your string must be encoded to Base64"
+          schema:
+            type: string
+            required: true
+        - variable: apiKeyScheme
+          label: "API Key scheme"
+          schema:
+            type: string
+        - variable: apiKeyHeaderName
+          label: "API Key header name"
+          schema:
+            type: string
+        - variable: serverID
+          label: "server ID"
+          schema:
+            default: "localhost"
+            type: string
+            required: true
+        - variable: caBundle
+          label: "Trusted CABundle for private ACME server"
+          description: "Trusted CABundle for private ACME server, encoded in base64"
+          schema:
+            type: string
+        - variable: ttl
+          label: "Time to Live"
+          description: "TTL for DNS records"
+          schema:
+            default: 120
+            type: int
+        - variable: timeout
+          label: "Timeout"
+          description: "Timeout for requests to the PDNS api server"
+          schema:
+            default: 30
+            type: int
+        - variable: allowed-zones
+          label: "Allowed zones"
+          description: "Remember the trailing dot to make the zone-name"
+          schema:
+            type: list
+            default: []
+            items:
+              - variable: zone
+                label: "Domain DNS Zone"
+                schema:
+                  type: string
