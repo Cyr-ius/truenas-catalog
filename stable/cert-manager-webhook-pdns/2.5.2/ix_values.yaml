@@ -17,13 +17,10 @@ fullnameOverride: ""
 
 service:
   main:
-    type: ClusterIP
     ports:
       main:
-        enabled: true
-        protocol: https
-        port: 443
-        targetPort: 8443
+        protocol: TCP
+        port: 8443
 
 workload:
   main:
@@ -40,6 +37,10 @@ workload:
             readOnly: true
       containers:
         main:
+          args:
+          - --tls-cert-file=/tls/tls.crt
+          - --tls-private-key-file=/tls/tls.key
+          - --secure-port=8443
           probes:
             liveness:
               path: "/healthz"
@@ -48,7 +49,7 @@ workload:
               path: "/healthz"
               type: https
             startup:
-              type: tcp
+              enabled: false
           env:
             GROUP_NAME: acme.zacharyseguin.ca
           volumeMounts:
@@ -60,16 +61,10 @@ workload:
         secret:
           secretName: cert-manager-webhook-pdns-webhook-tls
 
-pod:
-  volumes:
+persistence:
+  certs:
     secret:
       secretName: cert-manager-webhook-pdns-webhook-tls
-
-volumes:
-  secret:
-    secretName: cert-manager-webhook-pdns-webhook-tls
-
-persistence:
   varrun:
     enabled: false
   varlogs:
@@ -82,5 +77,6 @@ persistence:
     enabled: false
 
 securityContext:
-  runAsGroup: 100
-  runAsUser: 100
+  container:
+    runAsGroup: 100
+    runAsUser: 100
