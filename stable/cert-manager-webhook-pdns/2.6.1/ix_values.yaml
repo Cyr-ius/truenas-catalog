@@ -26,16 +26,6 @@ service:
 workload:
   main:
     podSpec:
-      initContainers:
-        init-config:
-          type: install
-          enabled: true
-          env:
-            GROUP_NAME: acme.zacharyseguin.ca
-          volumeMounts:
-          - mountPath: /tls
-            name: certs
-            readOnly: true
       containers:
         main:
           args:
@@ -53,27 +43,25 @@ workload:
               enabled: false
           env:
             GROUP_NAME: acme.zacharyseguin.ca
-      volumes:
-      - name: certs
-        secret:
-          secretName: cert-manager-webhook-pdns-webhook-tls
-
 persistence:
   certs:
     enabled: true
     mountPath: /tls
     readOnly: true
-    type: emptyDir
+    type: secret
+    objectName:  cert-manager-webhook-pdns-webhook-tls
+    optional: false
+    expandObjectName: false
   varrun:
-    enabled: false
+    enabled: true
   varlogs:
-    enabled: false
+    enabled: true
   tmp:
-    enabled: false
+    enabled: true
   shared:
-    enabled: false
+    enabled: true
   devshm:
-    enabled: false
+    enabled: true
 
 securityContext:
   container:
