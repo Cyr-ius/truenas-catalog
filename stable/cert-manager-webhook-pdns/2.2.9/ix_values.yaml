@@ -1,0 +1,13 @@
+image:
+  repository: zachomedia/cert-manager-webhook-pdns
+  tag: v2.5.0
+  pullPolicy: IfNotPresent
+
+groupName: acme.zacharyseguin.ca
+
+certManager:
+  namespace: ix-cert-manager
+  serviceAccountName: cert-manager-certmanager
+
+nameOverride: ""
+fullnameOverride: ""
