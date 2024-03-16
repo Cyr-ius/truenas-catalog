@@ -18,19 +18,11 @@ service:
       main:
         protocol: tcp
         port: 8443
-        targetPort: 8443
-  https:
-    enabled: true
-    ports:
-      https:
-        enabled: true
-        protocol: https
-        port: 443
-        targetPort: 443
 
 workload:
   main:
     podSpec:
+      automountServiceAccountToken: true
       containers:
         main:
           args:
@@ -41,11 +33,11 @@ workload:
             liveness:
               path: "/healthz"
               type: https
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: 443
             readiness:
               path: "/healthz"
               type: https
-              port: "{{ .Values.service.main.ports.main.targetPort }}"
+              port: 443
             startup:
               enabled: false
           env:
@@ -60,17 +52,25 @@ persistence:
     optional: false
     expandObjectName: false
   varrun:
-    enabled: true
+    enabled: false
   varlogs:
-    enabled: true
+    enabled: false
   tmp:
-    enabled: true
+    enabled: false
   shared:
-    enabled: true
+    enabled: false
   devshm:
-    enabled: true
+    enabled: false
 
 securityContext:
   container:
     runAsGroup: 100
     runAsUser: 100
+
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+
+podOptions:
+  automountServiceAccountToken: true
