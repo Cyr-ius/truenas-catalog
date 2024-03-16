@@ -56,13 +56,12 @@ spec:
         securityContext:
           runAsGroup: 100
           runAsUser: 100
+        resources: {}
         volumeMounts:
         - mountPath: /tls
           name: certs
           readOnly: true
-      securityContext: {}
       serviceAccountName: {{ include "cert-manager-webhook-pdns.fullname" . }}
-      terminationGracePeriodSeconds: 30
       volumes:
       - name: certs
         secret:
