@@ -19,8 +19,9 @@ service:
   main:
     ports:
       main:
-        protocol: TCP
+        protocol: tcp
         port: 8443
+        targetPort: 8443
 
 workload:
   main:
@@ -52,10 +53,6 @@ workload:
               enabled: false
           env:
             GROUP_NAME: acme.zacharyseguin.ca
-          volumeMounts:
-          - mountPath: /tls
-            name: certs
-            readOnly: true
       volumes:
       - name: certs
         secret:
@@ -63,8 +60,10 @@ workload:
 
 persistence:
   certs:
-    secret:
-      secretName: cert-manager-webhook-pdns-webhook-tls
+    enabled: true
+    mountPath: /tls
+    readOnly: true
+    type: emptyDir
   varrun:
     enabled: false
   varlogs:
