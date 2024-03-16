@@ -17,7 +17,7 @@ service:
     ports:
       main:
         protocol: tcp
-        port: 8443
+        port: 443
         targetPort: 8443
 
 workload:
@@ -32,13 +32,15 @@ workload:
           - --secure-port=8443
           probes:
             liveness:
-              path: "/healthz"
-              type: https
-              port: 443
+              enabled: false
+              # path: "/healthz"
+              # type: https
+              # port: 443
             readiness:
-              path: "/healthz"
-              type: https
-              port: 443
+              enabled: false
+              # path: "/healthz"
+              qtype: https
+              # port: 443
             startup:
               enabled: false
           env:
@@ -53,15 +55,15 @@ persistence:
     optional: false
     expandObjectName: false
   varrun:
-    enabled: true
+    enabled: false
   varlogs:
-    enabled: true
+    enabled: false
   tmp:
-    enabled: true
+    enabled: false
   shared:
-    enabled: true
+    enabled: false
   devshm:
-    enabled: true
+    enabled: false
 
 securityContext:
   container:
