@@ -21,20 +21,11 @@ service:
       main:
         protocol: tcp
         port: 8443
+        targetPort: 8443
 
 workload:
   main:
     podSpec:
-      initContainers:
-        init-config:
-          type: install
-          enabled: true
-          env:
-            GROUP_NAME: acme.zacharyseguin.ca
-          volumeMounts:
-          - mountPath: /tls
-            name: certs
-            readOnly: true
       containers:
         main:
           args:
@@ -52,19 +43,15 @@ workload:
               enabled: false
           env:
             GROUP_NAME: acme.zacharyseguin.ca
-          volumeMounts:
-          - mountPath: /tls
-            name: certs
-            readOnly: true
-      volumes:
-      - name: certs
-        secret:
-          secretName: cert-manager-webhook-pdns-webhook-tls
-
 persistence:
   certs:
+    enabled: true
     mountPath: /tls
     readOnly: true
+    type: secret
+    objectName:  cert-manager-webhook-pdns-webhook-tls
+    optional: false
+    expandObjectName: false
   varrun:
     enabled: false
   varlogs:
