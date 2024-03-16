@@ -1,0 +1,23 @@
+image:
+  repository: zachomedia/cert-manager-webhook-pdns
+  tag: v2.5.0
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 8443
+        protocol: https
+        targetPort: 8443
+portal:
+  open:
+    enabled: false
+
+groupName: acme.zacharyseguin.ca
+
+certManager:
+  namespace: ix-cert-manager
+  serviceAccountName: cert-manager-certmanager
+
+nameOverride: ""
+fullnameOverride: ""
