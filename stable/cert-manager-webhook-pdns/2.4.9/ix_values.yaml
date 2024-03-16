@@ -17,12 +17,10 @@ fullnameOverride: ""
 
 service:
   main:
-    type: ClusterIP
     ports:
       main:
-        enabled: true
-        protocol: https
-        port: 443
+        protocol: TCP
+        port: 8443
 
 workload:
   main:
@@ -50,6 +48,10 @@ workload:
               type: tcp
           env:
             GROUP_NAME: acme.zacharyseguin.ca
+          volumeMounts:
+          - mountPath: /tls
+            name: certs
+            readOnly: true
       volumes:
       - name: certs
         secret:
@@ -57,9 +59,8 @@ workload:
 
 persistence:
   certs:
-    enabled: true
-    mountPath: /tls
-    readOnly: true
+    secret:
+      secretName: cert-manager-webhook-pdns-webhook-tls
   varrun:
     enabled: false
   varlogs:
@@ -70,3 +71,8 @@ persistence:
     enabled: false
   devshm:
     enabled: false
+
+securityContext:
+  container:
+    runAsGroup: 100
+    runAsUser: 100
