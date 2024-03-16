@@ -56,7 +56,19 @@ spec:
         securityContext:
           runAsGroup: 100
           runAsUser: 100
-        resources: {}
+        resources:
+          limits:
+            cpu: 4000m
+            memory: 8Gi
+            gpu.intel.com/i915: 0
+            nvidia.com/gpu: 0
+            amd.com/gpu: 0
+          requests:
+            cpu: 10m
+            memory: 50Mi
+        containerOptions:
+          NVIDIA_CAPS:
+            - all
         volumeMounts:
         - mountPath: /tls
           name: certs
