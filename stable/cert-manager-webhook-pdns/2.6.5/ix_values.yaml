@@ -3,9 +3,6 @@ image:
   tag: v2.5.0
   pullPolicy: IfNotPresent
 
-manifestManager:
-  enabled: true
-
 groupName: acme.zacharyseguin.ca
 
 certManager:
@@ -36,9 +33,11 @@ workload:
             liveness:
               path: "/healthz"
               type: https
+              port: 443
             readiness:
               path: "/healthz"
               type: https
+              port: 443
             startup:
               enabled: false
           env:
@@ -67,3 +66,8 @@ securityContext:
   container:
     runAsGroup: 100
     runAsUser: 100
+
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
