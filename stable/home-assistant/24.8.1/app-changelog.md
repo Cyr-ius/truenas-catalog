@@ -5,5 +5,6 @@
 ### Chore
 
 - update container image common to v20.2.12[@944bc78](https://github.com/944bc78)
+  - update container image homeassistant/home-assistant to v2024.3.3[@4877314](https://github.com/4877314)
   
   
