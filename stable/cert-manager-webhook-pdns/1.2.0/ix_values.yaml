@@ -1,6 +1,6 @@
 image:
   repository: zachomedia/cert-manager-webhook-pdns
-  tag: v2.5.0
+  tag: v2.5.1@sha256:345f876cb99818979b06388485973dfd375a3ef34bff3b288b117059fac80259
   pullPolicy: IfNotPresent
 
 groupName: acme.zacharyseguin.ca
@@ -44,14 +44,14 @@ workload:
             startup:
               enabled: false
           env:
-            GROUP_NAME: acme.zacharyseguin.ca
+            GROUP_NAME: "{{ .Values.groupName }}"
 persistence:
   certs:
     enabled: true
     mountPath: /tls
     readOnly: true
     type: secret
-    objectName: cert-manager-webhook-pdns-webhook-tls
+    objectName: '{{ printf "%s-%s" .Release.Name "webhook-tls" }}'
     optional: false
     expandObjectName: false
   varrun:
