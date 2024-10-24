@@ -1,0 +1,311 @@
+
+
+## [zigbee2mqtt-13.4.0]zigbee2mqtt-13.4.0 (2024-10-24)
+
+### Chore
+
+- Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Update Readme and Description on SCALE
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - Auto-update chart README [skip ci]
+  - remove fixed env from questions.yaml
+  - fixes around the GUI refactor ([#1316](https://github.com/cyr-ius/truenas-charts/issues/1316))
+  - bump apps to generate security page
+  - refactor Services SCALE GUI
+  - Adapt for TrueNAS SCALE RC1
+  - add missing quote on description ([#2515](https://github.com/cyr-ius/truenas-charts/issues/2515))
+  - cleanup questions by removing hidden dicts ([#1558](https://github.com/cyr-ius/truenas-charts/issues/1558))
+  - bump all apps to trigger ci
+  - update common lib referece ([#2288](https://github.com/cyr-ius/truenas-charts/issues/2288))
+  - bump to regenerate catalog
+  - completely remove mountPath reference from GUI ([#1572](https://github.com/cyr-ius/truenas-charts/issues/1572))
+  - move icons into the apps folder ([#3139](https://github.com/cyr-ius/truenas-charts/issues/3139))
+  - Last patch bump before RC2 branch-off
+  - bump apps, remove duplicates and move incubator to stable for RC1
+  - Major Change to GUI
+  - rename `web_portal` to `open` ([#1957](https://github.com/cyr-ius/truenas-charts/issues/1957))
+  - Bump all for ingressList and speedtest
+  - App-Icon Organization ([#1539](https://github.com/cyr-ius/truenas-charts/issues/1539))
+  - move incubator apps to stable and bump everything
+  - update home links ([#3291](https://github.com/cyr-ius/truenas-charts/issues/3291))
+  - ensure container references are prefixed with v
+  - move all container references to TCCR ([#1448](https://github.com/cyr-ius/truenas-charts/issues/1448))
+  - update icons ([#3156](https://github.com/cyr-ius/truenas-charts/issues/3156))
+  - persistence cleanup and small bugfixes ([#1329](https://github.com/cyr-ius/truenas-charts/issues/1329))
+  - move port above advanced in GUI ([#1326](https://github.com/cyr-ius/truenas-charts/issues/1326))
+  - clean up Chart.yaml ([#1322](https://github.com/cyr-ius/truenas-charts/issues/1322))
+  - split addons in smaller templates ([#3979](https://github.com/cyr-ius/truenas-charts/issues/3979))
+  - remove `editable: true` as this is the default ([#1576](https://github.com/cyr-ius/truenas-charts/issues/1576))
+  - bump to regenerate documentation
+  - add documentation checkbox/section to all SCALE Apps
+  - Bump all charts to generate config and container references due to huge increase of repository
+  - bump to cleanup old docs and use correct icon urls
+  - sync all apps persistence configuration and always default to PVC
+  - update helm general non-major helm releases ([#2354](https://github.com/cyr-ius/truenas-charts/issues/2354))
+  - update helm general non-major ([#3767](https://github.com/cyr-ius/truenas-charts/issues/3767))
+  - update helm general non-major helm releases ([#3302](https://github.com/cyr-ius/truenas-charts/issues/3302))
+  - update helm general non-major helm releases ([#3147](https://github.com/cyr-ius/truenas-charts/issues/3147))
+  - update helm general non-major ([#8782](https://github.com/cyr-ius/truenas-charts/issues/8782))
+  - update helm general non-major helm releases ([#3376](https://github.com/cyr-ius/truenas-charts/issues/3376))
+  - update docker general non-major ([#3377](https://github.com/cyr-ius/truenas-charts/issues/3377))
+  - update helm general non-major helm releases ([#3113](https://github.com/cyr-ius/truenas-charts/issues/3113))
+  - update docker general non-major ([#3295](https://github.com/cyr-ius/truenas-charts/issues/3295))
+  - update helm general non-major helm releases ([#3066](https://github.com/cyr-ius/truenas-charts/issues/3066))
+  - update helm general non-major helm releases ([#3456](https://github.com/cyr-ius/truenas-charts/issues/3456))
+  - update docker general non-major ([#3033](https://github.com/cyr-ius/truenas-charts/issues/3033))
+  - update helm general non-major helm releases ([#3545](https://github.com/cyr-ius/truenas-charts/issues/3545))
+  - update helm general non-major helm releases ([#2977](https://github.com/cyr-ius/truenas-charts/issues/2977))
+  - update helm general non-major ([#3619](https://github.com/cyr-ius/truenas-charts/issues/3619))
+  - update helm general non-major helm releases ([#2948](https://github.com/cyr-ius/truenas-charts/issues/2948))
+  - update helm chart common to v10.5.5 ([#3626](https://github.com/cyr-ius/truenas-charts/issues/3626))
+  - update helm general non-major helm releases ([#2943](https://github.com/cyr-ius/truenas-charts/issues/2943))
+  - update helm general non-major ([#3639](https://github.com/cyr-ius/truenas-charts/issues/3639))
+  - update helm general non-major helm releases ([#2886](https://github.com/cyr-ius/truenas-charts/issues/2886))
+  - update docker general non-major ([#3660](https://github.com/cyr-ius/truenas-charts/issues/3660))
+  - update helm general non-major helm releases ([#2854](https://github.com/cyr-ius/truenas-charts/issues/2854))
+  - update helm general non-major ([#3711](https://github.com/cyr-ius/truenas-charts/issues/3711))
+  - update docker general non-major ([#2846](https://github.com/cyr-ius/truenas-charts/issues/2846))
+  - update helm general non-major ([#8739](https://github.com/cyr-ius/truenas-charts/issues/8739))
+  - update helm general non-major
+  - update helm general non-major ([#3898](https://github.com/cyr-ius/truenas-charts/issues/3898))
+  - update helm general non-major helm releases ([#3280](https://github.com/cyr-ius/truenas-charts/issues/3280))
+  - update helm general non-major ([#3918](https://github.com/cyr-ius/truenas-charts/issues/3918))
+  - update docker general non-major ([#2806](https://github.com/cyr-ius/truenas-charts/issues/2806))
+  - update docker general non-major
+  - update helm general non-major helm releases ([#2803](https://github.com/cyr-ius/truenas-charts/issues/2803))
+  - update helm general non-major
+  - update helm general non-major
+  - update helm general non-major helm releases ([#2759](https://github.com/cyr-ius/truenas-charts/issues/2759))
+  - update helm general non-major ([#4071](https://github.com/cyr-ius/truenas-charts/issues/4071))
+  - update helm general non-major helm releases
+  - update helm general non-major ([#4122](https://github.com/cyr-ius/truenas-charts/issues/4122))
+  - update helm general non-major ([#4182](https://github.com/cyr-ius/truenas-charts/issues/4182))
+  - update helm general non-major helm releases
+  - update helm general non-major ([#4261](https://github.com/cyr-ius/truenas-charts/issues/4261))
+  - update helm general non-major helm releases
+  - update docker general non-major ([#4286](https://github.com/cyr-ius/truenas-charts/issues/4286))
+  - update helm general non-major helm releases ([#2649](https://github.com/cyr-ius/truenas-charts/issues/2649))
+  - update docker general non-major ([#4301](https://github.com/cyr-ius/truenas-charts/issues/4301))
+  - update helm general non-major helm releases ([#2612](https://github.com/cyr-ius/truenas-charts/issues/2612))
+  - update helm general non-major ([#4308](https://github.com/cyr-ius/truenas-charts/issues/4308))
+  - update docker general non-major ([#2606](https://github.com/cyr-ius/truenas-charts/issues/2606))
+  - update helm general non-major ([#4317](https://github.com/cyr-ius/truenas-charts/issues/4317))
+  - update helm general non-major helm releases ([#2573](https://github.com/cyr-ius/truenas-charts/issues/2573))
+  - update helm general non-major ([#4329](https://github.com/cyr-ius/truenas-charts/issues/4329))
+  - update helm general non-major helm releases ([#2524](https://github.com/cyr-ius/truenas-charts/issues/2524))
+  - update helm general non-major ([#4342](https://github.com/cyr-ius/truenas-charts/issues/4342))
+  - update helm general non-major ([#4349](https://github.com/cyr-ius/truenas-charts/issues/4349))
+  - update helm general non-major helm releases ([#2480](https://github.com/cyr-ius/truenas-charts/issues/2480))
+  - update helm general non-major ([#4395](https://github.com/cyr-ius/truenas-charts/issues/4395))
+  - update docker general non-major ([#2460](https://github.com/cyr-ius/truenas-charts/issues/2460))
+  - update helm general major (major) ([#4424](https://github.com/cyr-ius/truenas-charts/issues/4424))
+  - update helm general non-major helm releases ([#2410](https://github.com/cyr-ius/truenas-charts/issues/2410))
+  - update helm general non-major ([#4463](https://github.com/cyr-ius/truenas-charts/issues/4463))
+  - update container image tccr.io/truecharts/zigbee2mqtt to v1.28.4
+  - update helm general non-major
+  - update helm general non-major helm releases ([#2361](https://github.com/cyr-ius/truenas-charts/issues/2361))
+  - update helm general non-major
+  - update non-major deps helm releases ([#1471](https://github.com/cyr-ius/truenas-charts/issues/1471))
+  - update container image tccr.io/truecharts/zigbee2mqtt to v1.30.4 ([#8846](https://github.com/cyr-ius/truenas-charts/issues/8846))
+  - update non-major deps helm releases ([#1267](https://github.com/cyr-ius/truenas-charts/issues/1267))
+  - update helm general non-major helm releases
+  - update helm general non-major helm releases ([#2201](https://github.com/cyr-ius/truenas-charts/issues/2201))
+  - update helm general non-major helm releases ([#2177](https://github.com/cyr-ius/truenas-charts/issues/2177))
+  - update helm general non-major helm releases ([#2111](https://github.com/cyr-ius/truenas-charts/issues/2111))
+  - update docker general non-major ([#2046](https://github.com/cyr-ius/truenas-charts/issues/2046))
+  - update helm chart common to v8.3.15 ([#1240](https://github.com/cyr-ius/truenas-charts/issues/1240))
+  - update helm general major helm releases ([#2021](https://github.com/cyr-ius/truenas-charts/issues/2021))
+  - update helm general non-major ([#5856](https://github.com/cyr-ius/truenas-charts/issues/5856))
+  - update helm general non-major helm releases ([#1999](https://github.com/cyr-ius/truenas-charts/issues/1999))
+  - update container image tccr.io/truecharts/zigbee2mqtt to v1.29.0
+  - update helm general non-major helm releases ([#1927](https://github.com/cyr-ius/truenas-charts/issues/1927))
+  - update helm general non-major helm releases ([#1901](https://github.com/cyr-ius/truenas-charts/issues/1901))
+  - update helm general non-major helm releases ([#1871](https://github.com/cyr-ius/truenas-charts/issues/1871))
+  - update helm chart common to v8.15.0 ([#1859](https://github.com/cyr-ius/truenas-charts/issues/1859))
+  - update helm general non-major helm releases ([#1852](https://github.com/cyr-ius/truenas-charts/issues/1852))
+  - update docker general non-major ([#1836](https://github.com/cyr-ius/truenas-charts/issues/1836))
+  - update helm general non-major helm releases ([#1828](https://github.com/cyr-ius/truenas-charts/issues/1828))
+  - update helm general non-major helm releases ([#1791](https://github.com/cyr-ius/truenas-charts/issues/1791))
+  - update helm general non-major helm releases ([#1766](https://github.com/cyr-ius/truenas-charts/issues/1766))
+  - update helm general non-major helm releases ([#1759](https://github.com/cyr-ius/truenas-charts/issues/1759))
+  - update helm general non-major helm releases ([#1732](https://github.com/cyr-ius/truenas-charts/issues/1732))
+  - update helm general non-major helm releases ([#1712](https://github.com/cyr-ius/truenas-charts/issues/1712))
+  - update helm general non-major helm releases ([#1704](https://github.com/cyr-ius/truenas-charts/issues/1704))
+  - update helm general non-major helm releases ([#1693](https://github.com/cyr-ius/truenas-charts/issues/1693))
+  - update helm general non-major helm releases
+  - update docker general non-major ([#1646](https://github.com/cyr-ius/truenas-charts/issues/1646))
+  - update helm general non-major helm releases ([#1623](https://github.com/cyr-ius/truenas-charts/issues/1623))
+  - update helm general non-major helm releases ([#1596](https://github.com/cyr-ius/truenas-charts/issues/1596))
+  - update container image tccr.io/truecharts/zigbee2mqtt to v1.29.1
+  - update container image tccr.io/truecharts/zigbee2mqtt to v1.29.2
+  - update helm general non-major helm releases ([#1571](https://github.com/cyr-ius/truenas-charts/issues/1571))
+  - update container image tccr.io/truecharts/zigbee2mqtt to 1.29.2
+  - update container image tccr.io/truecharts/zigbee2mqtt to v1.30.0
+  - update container image tccr.io/truecharts/zigbee2mqtt to v1.30.1
+  - update helm general non-major helm releases ([#1535](https://github.com/cyr-ius/truenas-charts/issues/1535))
+  - update non-major deps helm releases ([#1245](https://github.com/cyr-ius/truenas-charts/issues/1245))
+  - update general helm non-major helm releases ([#1509](https://github.com/cyr-ius/truenas-charts/issues/1509))
+  - update non-major deps helm releases ([#1481](https://github.com/cyr-ius/truenas-charts/issues/1481))
+  - update helm general non-major helm releases ([#3268](https://github.com/cyr-ius/truenas-charts/issues/3268))
+  - update non-major deps helm releases ([#1468](https://github.com/cyr-ius/truenas-charts/issues/1468))
+  - update helm general non-major ([#7998](https://github.com/cyr-ius/truenas-charts/issues/7998))
+  - update non-major deps helm releases ([#1453](https://github.com/cyr-ius/truenas-charts/issues/1453))
+  - update non-major ([#1449](https://github.com/cyr-ius/truenas-charts/issues/1449))
+  - update helm general non-major ([#8061](https://github.com/cyr-ius/truenas-charts/issues/8061))
+  - update helm general non-major ([#8071](https://github.com/cyr-ius/truenas-charts/issues/8071))
+  - update non-major deps helm releases ([#1432](https://github.com/cyr-ius/truenas-charts/issues/1432))
+  - update non-major deps helm releases ([#1386](https://github.com/cyr-ius/truenas-charts/issues/1386))
+  - update non-major deps helm releases ([#1383](https://github.com/cyr-ius/truenas-charts/issues/1383))
+  - update non-major deps helm releases ([#1345](https://github.com/cyr-ius/truenas-charts/issues/1345))
+  - update non-major deps helm releases ([#1338](https://github.com/cyr-ius/truenas-charts/issues/1338))
+  - update helm general non-major ([#8087](https://github.com/cyr-ius/truenas-charts/issues/8087))
+  - update non-major deps helm releases ([#1328](https://github.com/cyr-ius/truenas-charts/issues/1328))
+  - update helm general non-major ([#8145](https://github.com/cyr-ius/truenas-charts/issues/8145))
+  - update helm general non-major ([#8153](https://github.com/cyr-ius/truenas-charts/issues/8153))
+  - update container image tccr.io/truecharts/zigbee2mqtt to v1.30.3 ([#8539](https://github.com/cyr-ius/truenas-charts/issues/8539))
+  - update non-major deps helm releases ([#1297](https://github.com/cyr-ius/truenas-charts/issues/1297))
+  - update non-major deps helm releases ([#1295](https://github.com/cyr-ius/truenas-charts/issues/1295))
+  - update non-major deps helm releases ([#1291](https://github.com/cyr-ius/truenas-charts/issues/1291))
+  - update helm general non-major ([#5839](https://github.com/cyr-ius/truenas-charts/issues/5839))
+  - update non-major ([#1265](https://github.com/cyr-ius/truenas-charts/issues/1265))
+  - update non-major deps helm releases ([#1264](https://github.com/cyr-ius/truenas-charts/issues/1264))
+  - Remove `-icon` string from icon png's ([#2040](https://github.com/cyr-ius/truenas-charts/issues/2040))
+  - split serviceSelector ([#3751](https://github.com/cyr-ius/truenas-charts/issues/3751))
+  - replace questions parts with templates ([#3402](https://github.com/cyr-ius/truenas-charts/issues/3402))
+  - bump common on the 222 ([#7959](https://github.com/cyr-ius/truenas-charts/issues/7959))
+  
+  ### Chore
+
+- Simplify GUI for deployment, persistence and securityContext ([#1289](https://github.com/cyr-ius/truenas-charts/issues/1289))
+  
+  ### Feat
+
+- Simplify the Services GUI ([#1290](https://github.com/cyr-ius/truenas-charts/issues/1290))
+  - readd ingressList to all Apps that already have Ingress itself
+  - expose capabilities in GUI ([#1709](https://github.com/cyr-ius/truenas-charts/issues/1709))
+  - BREAKING CHANGE migrate to new common part 1 ([#7900](https://github.com/cyr-ius/truenas-charts/issues/7900))
+  - allow use of custom config file BREAKING CHANGE ([#2395](https://github.com/cyr-ius/truenas-charts/issues/2395))
+  
+  ### Fix
+
+- BREAKING CHANGE Move some env-vars outside of env section ([#2010](https://github.com/cyr-ius/truenas-charts/issues/2010))
+  - split udp and tcp ports ([#1321](https://github.com/cyr-ius/truenas-charts/issues/1321))
+  - Icon update for some apps ([#1520](https://github.com/cyr-ius/truenas-charts/issues/1520))
+  - prevent duplicate port use and fix some questions.yaml mistakes
+  - bump to ensure .helmignore is present on all Charts
+  - ensure new helm deps repo is used in latest releases as well.
+  - remove references to targetPort
+  - change container config label
+  - Allow spaces in paths ([#1306](https://github.com/cyr-ius/truenas-charts/issues/1306))
+  - remove removed includes
+  - sync securityContext from values to questions ([#1323](https://github.com/cyr-ius/truenas-charts/issues/1323))
+  - move conflicting ports to 10xxx range ([#1415](https://github.com/cyr-ius/truenas-charts/issues/1415))
+  - set additional_attrs: true on all dicts ([#1750](https://github.com/cyr-ius/truenas-charts/issues/1750))
+  - regenerate catalog and update template
+  - hotpatch to disable HPA and networkPolicy in SCALE interface, due to incompatible format.
+  - remove malfunctioning SCALE migration script
+  -  clean more non-link sources ([#6925](https://github.com/cyr-ius/truenas-charts/issues/6925))
+  - bump common on the 222 ([#7927](https://github.com/cyr-ius/truenas-charts/issues/7927))
+  - move extraArgs from .Values.controller to .Values ([#3447](https://github.com/cyr-ius/truenas-charts/issues/3447))
+  - Expose gui option to set usbdevice path ([#2213](https://github.com/cyr-ius/truenas-charts/issues/2213))
+  - Add more basic options in gui ([#2215](https://github.com/cyr-ius/truenas-charts/issues/2215))
+  - Remove configmap and provide questions for basic setup to get up and running ([#2225](https://github.com/cyr-ius/truenas-charts/issues/2225))
+  - create an initial file ([#2233](https://github.com/cyr-ius/truenas-charts/issues/2233))
+  - wrong default on dropdown ([#2391](https://github.com/cyr-ius/truenas-charts/issues/2391))
+  
+  ### Refactor
+
+- BREAKING CHANGE ([#2836](https://github.com/cyr-ius/truenas-charts/issues/2836))
+  
+  
