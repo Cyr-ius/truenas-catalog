@@ -12,10 +12,10 @@
             "healthy_error": null,
             "home": "https://truecharts.org/charts/stable/home-assistant",
             "location": "/home/runner/work/truenas-catalog/truenas-catalog/stable/home-assistant",
-            "latest_version": "21.0.5",
-            "latest_app_version": "2023.12.3",
-            "latest_human_version": "2023.12.3_21.0.5",
-            "last_update": "2023-12-22 14:17:27",
+            "latest_version": "24.14.3",
+            "latest_app_version": "2024.3.1",
+            "latest_human_version": "2024.3.1_24.14.3",
+            "last_update": "2024-10-24 16:06:00",
             "name": "home-assistant",
             "recommended": false,
             "title": "Home-assistant",
@@ -34,6 +34,70 @@
                 "https://github.com/cdr/code-server"
             ],
             "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/home-assistant.png"
+        },
+        "zigbee2mqtt": {
+            "app_readme": "<p>Bridges events and allows you to control your Zigbee devices via MQTT</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/zigbee2mqtt\">https://truecharts.org/charts/stable/zigbee2mqtt</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+            "categories": [
+                "media"
+            ],
+            "description": "Bridges events and allows you to control your Zigbee devices via MQTT",
+            "healthy": true,
+            "healthy_error": null,
+            "home": "https://truecharts.org/charts/stable/zigbee2mqtt",
+            "location": "/home/runner/work/truenas-catalog/truenas-catalog/stable/zigbee2mqtt",
+            "latest_version": "13.5.3",
+            "latest_app_version": "1.40.2",
+            "latest_human_version": "1.40.2_13.5.3",
+            "last_update": "2024-10-24 16:06:00",
+            "name": "zigbee2mqtt",
+            "recommended": false,
+            "title": "Zigbee2mqtt",
+            "maintainers": [
+                {
+                    "name": "TrueCharts",
+                    "email": "info@truecharts.org",
+                    "url": "https://truecharts.org"
+                }
+            ],
+            "tags": [],
+            "screenshots": [],
+            "sources": [
+                "https://github.com/Koenkk/zigbee2mqtt",
+                "https://github.com/truecharts/charts/tree/master/charts/stable/zigbee2mqtt",
+                "https://hub.docker.com/r/koenkk/zigbee2mqtt"
+            ],
+            "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/zigbee2mqtt.webp"
+        },
+        "cert-manager-webhook-pdns": {
+            "app_readme": "<p>Cert Manager Webhook for PowerDNS.</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/cert-manager-webhook-pdns\">https://truecharts.org/charts/stable/cert-manager-webhook-pdns</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+            "categories": [
+                "home-automation"
+            ],
+            "description": "Cert Manager Webhook for PowerDNS.",
+            "healthy": true,
+            "healthy_error": null,
+            "home": "https://github.com/cyr-ius/cert-manager-webhook-pdns",
+            "location": "/home/runner/work/truenas-catalog/truenas-catalog/stable/cert-manager-webhook-pdns",
+            "latest_version": "1.7.3",
+            "latest_app_version": "v1.1.4",
+            "latest_human_version": "v1.1.4_1.7.3",
+            "last_update": "2024-10-24 16:06:00",
+            "name": "cert-manager-webhook-pdns",
+            "recommended": false,
+            "title": "Cert-manager-webhook-pdns",
+            "maintainers": [
+                {
+                    "name": "Cyr-ius",
+                    "email": "webmaster@ipocus.net",
+                    "url": "https://ipocus.net"
+                }
+            ],
+            "tags": [],
+            "screenshots": [],
+            "sources": [
+                "https://github.com/cyr-ius/truenas-charts/tree/my-refs/charts/stable/cert-manager-webhook-pdns"
+            ],
+            "icon_url": "https://truecharts.org/img/hotlink-ok/chart-icons/clusterissuer.png"
         }
     }
 }
